@@ -1,0 +1,20 @@
+# This is a mostly empty service, but allows commands like stop, start, reload
+# to propagate to all aetherguard@ service instances.
+
+[Unit]
+Description=aetherguard VPN
+Documentation=info:aetherguard
+Documentation=man:aetherguard(8) man:aetherguard.conf(5)
+Documentation=http://aetherguard-vpn.org/docs/
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecReload=/bin/true
+WorkingDirectory=@sysconfdir@/aetherguard
+
+[Install]
+WantedBy=multi-user.target

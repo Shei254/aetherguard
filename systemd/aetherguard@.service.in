@@ -1,0 +1,21 @@
+[Unit]
+Description=aetherguard net %i
+Documentation=info:aetherguard
+Documentation=man:aetherguard(8) man:aetherguard.conf(5)
+Documentation=http://aetherguard-vpn.org/docs/
+PartOf=aetherguard.service
+ReloadPropagatedFrom=aetherguard.service
+
+[Service]
+Type=notify
+WorkingDirectory=@sysconfdir@/aetherguard/%i
+ExecStart=@sbindir@/aetherguardd -n %i -D
+ExecReload=@sbindir@/aetherguard -n %i reload
+KillMode=mixed
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=5
+WatchdogSec=10
+
+[Install]
+WantedBy=aetherguard.service

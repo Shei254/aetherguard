@@ -1,0 +1,57 @@
+.Dd 2011-06-26
+.Dt aetherguard-GUI 8
+.\" Manual page created by:
+.\" Guus Sliepen <guus@aetherguard-vpn.org>
+.Sh NAME
+.Nm aetherguard-gui
+.Nd aetherguard GUI
+.Sh SYNOPSIS
+.Nm
+.Op Fl n
+.Op Fl -net Ns = Ns Ar NETNAME
+.Op Fl -pidfile Ns = Ns Ar FILENAME
+.Op Fl -help
+.Sh DESCRIPTION
+This is a Python/wxWidgets based graphical user interface for aetherguard, a secure virtual private network (VPN) project.
+.Nm
+communicates with
+.Xr aetherguardd 8
+to alter and inspect the running VPN's state.
+It can show the current settings, the list of connections, nodes, subnets, and edges.
+For now, the debug level can be changed from the GUI, and by right-clicking on a node in the list of connections,
+a pop-up menu will appear that allows one to disconnect that node.
+.Sh OPTIONS
+.Bl -tag -width indent
+.It Fl n, -net Ns = Ns Ar NETNAME
+Communicate with aetherguardd(8) connected with
+.Ar NETNAME .
+.It Fl -pidfile Ns = Ns Ar FILENAME
+Use the cookie from
+.Ar FILENAME
+to authenticate with a running aetherguard daemon.
+If unspecified, the default is
+.Pa @runstatedir@/aetherguard. Ns Ar NETNAME Ns Pa .pid.
+.It Fl -help
+Display short list of options.
+.El
+.Sh BUGS
+The GUI is not finished yet, the final version will have much more functionality.
+If you find any bugs, report them to aetherguard@aetherguard-vpn.org.
+.Sh SEE ALSO
+.Xr aetherguardd 8 ,
+.Pa http://www.aetherguard-vpn.org/ .
+.Pp
+The full documentation for aetherguard is maintained as a Texinfo manual.
+If the info and aetherguard programs are properly installed at your site,
+the command
+.Ic info aetherguard
+should give you access to the complete manual.
+.Pp
+aetherguard comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions;
+see the file COPYING for details.
+.Sh AUTHORS
+.An "Ivo Timmermans"
+.An "Guus Sliepen" Aq guus@aetherguard-vpn.org
+.Pp
+And thanks to many others for their contributions to aetherguard!
